@@ -1,0 +1,38 @@
+.scrollbarHorizontal {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1; 
+  height: 18px;
+
+  border-bottom: 1px solid var(--neutral-2);
+}
+
+.scrollbarVertical {
+    display: flex;
+    flex-direction: column;
+    width: 18px;
+
+    border-right: 1px solid var(--neutral-2);
+}
+
+.caret {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--neutral-2);
+    width: 18px;
+    height: 18px;
+
+    line-height: 2px;
+
+    border-top: 1px solid var(--neutral-accent-light);
+    border-left: 1px solid var(--neutral-accent-light);
+    border-right: 2px solid var(--neutral-accent-dark);
+    border-bottom: 2px solid var(--neutral-accent-dark);
+}
+
+.scrollCenter {
+    background-color: var(--neutral-3);
+    flex-grow: 1;
+}

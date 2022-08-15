@@ -6,11 +6,20 @@ import TaskBar from './components/taskBar'
 
 export default function Home() {
   const [visibleWindows, setVisibleWindows] = useState({}) // set default windows here!
+  const [activeWindow, setActiveWindow] = useState("")
 
   return (
     <div className={styles.container}>
-      <TaskBar visibleWindows={visibleWindows} setVisibleWindows={setVisibleWindows}/>
-      <Desktop visibleWindows={visibleWindows} setVisibleWindows={setVisibleWindows}/>
+      <TaskBar 
+        activeWindow={activeWindow}
+        setActiveWindow={setActiveWindow}
+        visibleWindows={visibleWindows} 
+        setVisibleWindows={setVisibleWindows}/>
+      <Desktop 
+        activeWindow={activeWindow}
+        setActiveWindow={setActiveWindow}
+        visibleWindows={visibleWindows} 
+        setVisibleWindows={setVisibleWindows}/>
     </div>
   )
 }

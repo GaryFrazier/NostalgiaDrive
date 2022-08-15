@@ -21,6 +21,7 @@ function selectMenuItem(menuItem, onSelect, props) {
         let newVisibleWindows = {...props.visibleWindows}
         newVisibleWindows[menuItem] = true
         props.setVisibleWindows({...newVisibleWindows})
+        props.setActiveWindow(menuItem)
     }
 }
 

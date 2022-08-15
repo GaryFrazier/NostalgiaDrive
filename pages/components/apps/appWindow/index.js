@@ -22,15 +22,12 @@ export default function AppWindow(props) {
                 props.dragStarted(props.keyName)
             }}
         >
-            <div>
-                <div className={`handle ${styles.windowTitle} ${props.activeWindow ? styles.active : ""}`}>
-                    {props.title}
-                    <button className={styles.windlowCloseButton} onClick={() => closeWindow(props)}><span>x</span></button>
-                </div>
-                <div>
-                    hi
-                    {props.children}
-                </div>
+            <div className={`handle ${styles.windowTitle} ${props.activeWindow ? styles.active : ""}`}>
+                {props.title}
+                <button className={styles.windlowCloseButton} onClick={() => closeWindow(props)}><span>x</span></button>
+            </div>
+            <div className={styles.bodyContainer}>
+                {props.children}
             </div>
         </Rnd>
     )

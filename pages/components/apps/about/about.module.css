@@ -1,3 +1,29 @@
 .about {
+    margin: 5px 2px 2px 2px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 
+    border-top: 2px solid var(--neutral-accent-dark);
+    border-left: 2px solid var(--neutral-accent-dark);
+}
+
+.textContainer {
+    display: flex;
+    flex-grow: 1;
+    
+}
+
+.textArea {
+    background-color: white;
+    flex-grow: 1;
+}
+
+.bottomContainer {
+    display: flex;
+}
+
+.corner {
+    width: 18px;
+    height: 18px;
 }

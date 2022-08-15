@@ -1,5 +1,5 @@
 .appWindow {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     background-color: var(--neutral-1);
 
@@ -50,4 +50,9 @@
 .windlowCloseButton span {
     position: relative;
     top: -1px;
+}
+
+.bodyContainer {
+    display: flex;
+    flex-grow: 1;
 }
