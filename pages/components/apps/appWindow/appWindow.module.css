@@ -1,9 +1,14 @@
 .appWindow {
+    display: flex;
+    flex-direction: column;
     background-color: var(--neutral-1);
 }
 
-.resizeHandle {
-    width: 10px;
-    height: 10px;
-    background-color: green;
+.windowTitle {
+    height: 30px;
+    background-color: var(--neutral-2);
+}
+
+.windowTitle.active {
+    background-color: var(--active-primary);
 }

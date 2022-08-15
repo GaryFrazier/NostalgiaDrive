@@ -1,13 +1,12 @@
 import styles from './appWindow.module.css'
-import React, { useState } from 'react';
 import { Rnd } from 'react-rnd';
 
 export default function AppWindow(props) {
     return (
         <Rnd
             default={{
-                x: 0,
-                y: 0,
+                x: 50,
+                y: 50,
                 width: 320,
                 height: 200,
             }}
@@ -22,10 +21,7 @@ export default function AppWindow(props) {
             }}
         >
             <div>
-                <div className="handle">
-                    handle
-                    
-                
+                <div className={`handle ${styles.windowTitle} ${props.activeWindow ? styles.active : ""}`}>
                 </div>
                 <div>
                     hi

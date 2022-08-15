@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import AppWindow from '../apps/appWindow'
 
 export default function Desktop() {
-    const [activeWindow, setActiveWindow] = useState("");
+    const [activeWindow, setActiveWindow] = useState("")
 
     return (
         <div className={styles.desktop}>
