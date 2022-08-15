@@ -13,7 +13,7 @@
     "next-auth": "^4.10.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-draggable": "^4.4.5"
+    "react-rnd": "^10.3.7"
   },
   "devDependencies": {
     "eslint": "8.22.0",

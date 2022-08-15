@@ -5,6 +5,7 @@ export default function Desktop() {
     return (
         <div className={styles.desktop}>
             <AppWindow></AppWindow>
+            <AppWindow></AppWindow>
         </div>
     )
 }

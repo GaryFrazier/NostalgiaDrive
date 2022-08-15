@@ -1,16 +1,30 @@
 import styles from './appWindow.module.css'
-import Draggable from 'react-draggable'
+import { Rnd } from 'react-rnd';
 
 export default function AppWindow(props) {
     return (
-        <Draggable
+        <Rnd
+            default={{
+                x: 0,
+                y: 0,
+                width: 320,
+                height: 200,
+            }}
+            className={styles.appWindow}
             bounds="parent"
-            handle=".handle"
+            dragHandleClassName="handle"
         >
-            <div className="appWindow handle">
-                appwindow
-                {props.children}
+            <div>
+                <div className="handle">
+                    handle
+                    
+                
+                </div>
+                <div>
+                    hi
+                    {props.children}
+                </div>
             </div>
-        </Draggable>
+        </Rnd>
     )
 }
