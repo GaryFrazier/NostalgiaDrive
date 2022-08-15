@@ -9,7 +9,7 @@ export default function StartButton() {
 
     return (
         <div>
-            { startMenuOpen && <StartMenu /> }
+            { startMenuOpen && <StartMenu onSelect={() => setStartMenuOpen(false)}/> }
             <button className={styles.startButton} onClick={() => setStartMenuOpen(!startMenuOpen)}>
                 <Image
                     src={DiskDrive}
