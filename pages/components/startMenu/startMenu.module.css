@@ -16,3 +16,22 @@
   border-right: 2px solid var(--neutral-accent-dark);
   border-bottom: 2px solid var(--neutral-accent-dark);
 }
+
+.startMenuItem {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.startMenuItem:active, .startMenuItem:hover {
+  background-color: var(--active-primary);
+  color: white;
+}
+
+.startMenuItem img {
+  padding-right: 10px !important;
+}

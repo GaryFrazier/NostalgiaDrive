@@ -1,11 +1,11 @@
 import styles from './startMenu.module.css'
-import Image from 'next/image'
-import DiskDrive from '../../../public/diskDrive.png'
+import About from '../../../public/about.png'
+import StartMenuItem from './startMenuItem'
 
 export default function StartMenu() {
     return (
         <div className={styles.startMenu}>
-            hi
+            <StartMenuItem img={About} text="About" />
         </div>
     )
 }
