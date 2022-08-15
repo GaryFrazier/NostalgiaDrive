@@ -13,6 +13,8 @@ export default function AppWindow(props) {
             style={{
                 zIndex: props.activeWindow ? 100 : 10,
             }}
+            minWidth="200px"
+            minHeight="150px"
             className={styles.appWindow}
             bounds="parent"
             dragHandleClassName="handle"
@@ -22,6 +24,8 @@ export default function AppWindow(props) {
         >
             <div>
                 <div className={`handle ${styles.windowTitle} ${props.activeWindow ? styles.active : ""}`}>
+                    {props.title}
+                    <button className={styles.windlowCloseButton}>x</button>
                 </div>
                 <div>
                     hi

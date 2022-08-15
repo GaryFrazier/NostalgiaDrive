@@ -7,10 +7,10 @@ export default function Desktop() {
 
     return (
         <div className={styles.desktop}>
-            <AppWindow keyName="about" activeWindow={activeWindow === "about"} dragStarted={(keyName) => setActiveWindow(keyName)}>
+            <AppWindow keyName="about" title="About" activeWindow={activeWindow === "about"} dragStarted={(keyName) => setActiveWindow(keyName)}>
             </AppWindow>
 
-            <AppWindow keyName="submit" activeWindow={activeWindow === "submit"} dragStarted={(keyName) => setActiveWindow(keyName)}>
+            <AppWindow keyName="submit" title="Submit" activeWindow={activeWindow === "submit"} dragStarted={(keyName) => setActiveWindow(keyName)}>
             </AppWindow>
         </div>
     )

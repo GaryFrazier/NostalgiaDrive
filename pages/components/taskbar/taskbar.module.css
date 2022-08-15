@@ -21,7 +21,6 @@
 .startButton {
   display: flex;
   align-items: center;
-  font-weight: bolder;
   background-color: var(--neutral-1);
   cursor: pointer;
   
@@ -48,7 +47,6 @@
   border: 1px solid var(--neutral-accent-dark);
   cursor: pointer;
   padding: 4px;
-  font-weight: bold;
 
   border-top: 2px solid var(--neutral-accent-light);
   border-left: 2px solid var(--neutral-accent-light);
