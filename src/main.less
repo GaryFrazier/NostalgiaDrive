@@ -1,0 +1,69 @@
+*{
+  margin:0;
+  padding:0;
+  border:none;
+  box-sizing:border-box;
+  -webkit-user-select:none;
+}
+html,body{
+  height:100%;
+  width:100%;
+  overflow:hidden;
+}
+.root{
+  height:100%;
+  width:100%;
+  position:relative;
+  .scope{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+  }
+}
+
+
+.icon{
+  background-image: url(./images/doc.png);
+  background-position: center center;
+  background-repeat:no-repeat;
+  &.radio{
+    background-image:url(./images/windows/radio.png);
+  }
+  &.chat{
+    background-image:url(./images/windows/chat.png);
+  }
+  &.camera{
+    background-image:url(./images/windows/camera.png);
+  }
+  &.donate{
+    background-image:url(./images/windows/donate.png);
+  }
+  &.share{
+    background-image:url(./images/windows/share.png);
+  }
+  &.about {
+    background-image:url(./images/windows/about.png);
+  }
+  &.business {
+    background-image:url(./images/windows/business.png);
+  }
+  &.wallpaper {
+    background-image:url(./images/windows/wallpaper.png);
+  }
+  &.watchParty {
+    background-image:url(./images/windows/watchParty.png);
+  }
+  &.paint {
+    background-image:url(./images/windows/paint.png);
+  }
+  &.deadmall {
+    background-image:url(./images/windows/deadmall.png);
+  }
+}
+
+input[type=text]{
+  border:1px solid;
+  cursor:text;
+  -webkit-user-select:initial;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta 
+        name='viewport' 
+        content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+    />
+    <title>The Virtual Plaza</title>
+    <meta name="description" content="The Virtual Plaza is a vaporwave themed community where you can chat, listen to music, and browse aesthetic content all for free! Come join our discord!"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
+
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+          https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-analytics.js"></script>
+
+      <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyD7vkIJsjLO_H4PaEbf0D1IpL7yxpflFg8",
+          authDomain: "the-virtual-plaza-2d75b.firebaseapp.com",
+          databaseURL: "https://the-virtual-plaza-2d75b.firebaseio.com",
+          projectId: "the-virtual-plaza-2d75b",
+          storageBucket: "the-virtual-plaza-2d75b.appspot.com",
+          messagingSenderId: "1016264000644",
+          appId: "1:1016264000644:web:42a052c9ed1103bc7feed1",
+          measurementId: "G-SPRS5PG95R"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+      </script>
+  
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
+    </script>
+
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but The Virtual Plaza doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+
+  </body>
+</html>
