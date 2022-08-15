@@ -2,11 +2,11 @@ import styles from './taskbar.module.css'
 import StartButton from './startButton'
 import AuthTaksbarItem from './authTaskbarItem'
 
-export default function Taskbar() {
+export default function Taskbar(props) {
     return (
         <div className={styles.taskbar}>
-            <StartButton />
-            <AuthTaksbarItem />
+            <StartButton {...props} />
+            <AuthTaksbarItem {...props} />
         </div>
     )
 }

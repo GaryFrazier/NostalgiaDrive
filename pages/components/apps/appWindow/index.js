@@ -25,7 +25,7 @@ export default function AppWindow(props) {
             <div>
                 <div className={`handle ${styles.windowTitle} ${props.activeWindow ? styles.active : ""}`}>
                     {props.title}
-                    <button className={styles.windlowCloseButton}>x</button>
+                    <button className={styles.windlowCloseButton} onClick={() => closeWindow(props)}><span>x</span></button>
                 </div>
                 <div>
                     hi
@@ -34,4 +34,13 @@ export default function AppWindow(props) {
             </div>
         </Rnd>
     )
+}
+
+
+function closeWindow(props) {
+    if (props.setVisibleWindows) {
+        let newVisibleWindows = {...props.visibleWindows}
+        newVisibleWindows[props.keyName] = false
+        props.setVisibleWindows({...newVisibleWindows})
+    }
 }

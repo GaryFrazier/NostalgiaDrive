@@ -12,6 +12,7 @@
 .windowTitle {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 5px;
     height: 30px;
     margin: 2px;
@@ -22,4 +23,31 @@
 .windowTitle.active {
     color: var(--background);
     background-color: var(--active-primary);
+}
+
+.windlowCloseButton {
+    height: 20px;
+    width: 20px;
+    font-size: 1.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--neutral-1);
+    border-top: 1px solid var(--neutral-accent-light);
+    border-left: 1px solid var(--neutral-accent-light);
+    border-right: 1px solid var(--neutral-accent-dark);
+    border-bottom: 1px solid var(--neutral-accent-dark);
+}
+
+.windlowCloseButton:active {
+    border-top: 1px solid var(--neutral-accent-dark);
+    border-left: 1px solid var(--neutral-accent-dark);
+    border-right: 0px solid var(--neutral-accent-light);
+    border-bottom: 0px solid var(--neutral-accent-light);
+}
+
+.windlowCloseButton span {
+    position: relative;
+    top: -1px;
 }

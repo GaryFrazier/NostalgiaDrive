@@ -5,13 +5,13 @@ import DiskDrive from '../../../public/diskDrive.png'
 import StartMenu from '../startMenu'
 import OutsideAlerter from '../../../hooks/outsideAlerter'
 
-export default function StartButton() {
+export default function StartButton(props) {
     const [startMenuOpen, setStartMenuOpen] = useState(false);
 
     return (
         <div>
             <OutsideAlerter handleClickOutside={() => setStartMenuOpen(false)}>
-                { startMenuOpen && <StartMenu onSelect={() => setStartMenuOpen(false)}/> }
+                { startMenuOpen && <StartMenu {...props} onSelect={() => setStartMenuOpen(false)}/> }
                 <button className={styles.startButton} onClick={() => startMenuOpen ? null : setStartMenuOpen(true)}>
                     <Image
                         src={DiskDrive}
