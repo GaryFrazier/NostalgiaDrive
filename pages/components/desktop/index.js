@@ -3,6 +3,12 @@ import React, { useState } from 'react';
 import AppWindow from '../apps/appWindow'
 import About from '../apps/about'
 import Submit from '../apps/submit'
+import Video from '../apps/video'
+import ChatRoom from '../apps/chatRoom'
+import AppIcon from '../widgets/appIcon'
+
+import WatchParty from '../../../public/watchParty.png'
+import Business from '../../../public/business.png'
 
 export default function Desktop(props) {
     return (
@@ -18,7 +24,44 @@ export default function Desktop(props) {
                     <Submit />
                 </AppWindow>
             }
+
+            {props.visibleWindows && props.visibleWindows["video"] && 
+                <AppWindow {...props} keyName="video" title="Video" activeWindow={props.activeWindow === "video"} 
+                    dragStarted={(keyName) => props.setActiveWindow(keyName)}
+                    defaultWidth={400}
+                    defaultHeight={400}
+                    minWidth={"400px"}
+                    minHeight={"400px"}
+                >
+                    <Video />
+                </AppWindow>
+            }
+
+            {props.visibleWindows && props.visibleWindows["chatRoom"] && 
+                <AppWindow {...props} keyName="chatRoom" title="Chat Room" activeWindow={props.activeWindow === "chatRoom"} 
+                    dragStarted={(keyName) => props.setActiveWindow(keyName)}
+                    defaultWidth={400}
+                    defaultHeight={500}
+                    minWidth={"400px"}
+                    minHeight={"500px"}
+                >
+                    <ChatRoom />
+                </AppWindow>
+            }
             
+            <div className={styles.appList}>
+                <AppIcon img={WatchParty} text={"Video"} onClick={() => openApp("video", props)}/>
+                <AppIcon img={Business} text={"Chat Room"} onClick={() => openApp("chatRoom", props)}/>
+            </div>
         </div>
     )
 }
+
+function openApp(app, props) {
+    if (props.setVisibleWindows) {
+        let newVisibleWindows = {...props.visibleWindows}
+        newVisibleWindows[app] = true
+        props.setVisibleWindows({...newVisibleWindows})
+        props.setActiveWindow(app)
+    }
+} 

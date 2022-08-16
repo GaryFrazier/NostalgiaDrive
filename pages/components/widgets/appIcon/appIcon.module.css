@@ -1,0 +1,22 @@
+.appIcon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 15px 15px 0 0;
+}
+
+.appIconButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+}
+
+.appIconButtonText {
+    margin-top: 3px;
+}

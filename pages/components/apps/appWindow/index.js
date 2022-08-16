@@ -5,19 +5,20 @@ export default function AppWindow(props) {
     return (
         <Rnd
             default={{
-                x: 50,
-                y: 50,
-                width: 320,
-                height: 200,
+                x: 100,
+                y: 200,
+                width: props.defaultWidth || 320,
+                height: props.defaultHeight || 200,
             }}
             style={{
                 zIndex: props.activeWindow ? 100 : 10,
             }}
-            minWidth="200px"
-            minHeight="150px"
+            minWidth={props.minWidth || "300px"}
+            minHeight={props.minHeight || "250px"}
             className={styles.appWindow}
             bounds="parent"
             dragHandleClassName="handle"
+            cancel={"." + styles.windlowCloseButton}
             onMouseDown={() => { 
                 props.dragStarted(props.keyName)
             }}

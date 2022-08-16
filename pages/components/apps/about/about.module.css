@@ -27,3 +27,8 @@
     width: 18px;
     height: 18px;
 }
+
+.textPre {
+    color: black;
+    white-space: pre-wrap;
+}
