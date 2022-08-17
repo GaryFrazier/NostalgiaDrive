@@ -48,3 +48,11 @@
 .playlistRadioGroup input {
     margin: 0 5px;
 }
+
+.loading {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2rem;
+}
