@@ -31,7 +31,7 @@ export default function Desktop(props) {
                     defaultWidth={400}
                     defaultHeight={400}
                     minWidth={"640px"}
-                    minHeight={"400px"}
+                    minHeight={"440px"}
                 >
                     <Video />
                 </AppWindow>

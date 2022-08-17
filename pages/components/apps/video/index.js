@@ -4,29 +4,62 @@ import YouTube, { YouTubePlayer } from 'react-youtube'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faPause, faForwardStep, faBackwardStep, faHeart, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 
+import { getVideos } from '../../..//api/videos'
+
 let videoElement = null;
 
 export default function Video() {
-    const [isPaused, setIsPaused] = useState(false);
+    const [isPaused, setIsPaused] = useState(false)
+    const [playlist, setPlaylist] = useState("popular")
+    const [videos, setVideos] = useState({})
+    const [videoIndex, setVideoIndex] = useState(0)
 
     const togglePause = () => {
         setIsPaused(!isPaused);
-    };
+    }
+
+    useEffect(() => { 
+        async function fetchData() {
+            return await getVideos()
+            setVideos(videos)
+          }
+          fetchData();
+    }, [])
 
     useEffect(() => {   
         if (videoElement) {
           // Pause and Play video
-          if (isPaused) {
-            videoElement.target.pauseVideo();
-          } else {
-            videoElement.target.playVideo();
+          try {
+            if (isPaused) {
+                videoElement.target.pauseVideo();
+              } else {
+                videoElement.target.playVideo();
+              }
+          } catch(e) {
+              
           }
+          
         }
       }, [isPaused, videoElement]);
+
+      useEffect(() => {   
+        if (videoElement && videos && videos[playlist]) {
+          try {
+            videoElement.target.loadPlaylist(videos[playlist], videoIndex % videos[playlist].length, 0);
+          } catch(e) {
+              
+          }
+          
+        }
+      }, [playlist, videos]);
 
     const _onReady = (event) => {
         videoElement = event;
     };
+
+    const onChangeValue = (event) => {
+        setPlaylist(event.target.value)
+    }
 
     return (
         <div className={styles.video}>
@@ -80,6 +113,12 @@ export default function Video() {
                 </button>
 
                 <div className={styles.verticalBreak} />
+
+                <div className={styles.playlistRadioGroup} onChange={onChangeValue}>
+                    <input defaultChecked={playlist === "popular"} type="radio" value="popular" name="playlist" /> Popular
+                    <input defaultChecked={playlist === "random"} type="radio" value="random" name="playlist" /> Random
+                    <input defaultChecked={playlist === "favorites"} type="radio" value="favorites" name="playlist" /> Favorites
+                </div>
             </div>
         </div>
     )

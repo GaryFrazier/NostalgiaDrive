@@ -39,3 +39,12 @@
     border: none;
     color: var(--neutral-2);
 }
+
+.playlistRadioGroup {
+    display: flex;
+    align-items: center;
+}
+
+.playlistRadioGroup input {
+    margin: 0 5px;
+}
