@@ -1,3 +1,41 @@
 .video {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 0 2px;
+}
 
+.player {
+    display: flex;
+    flex-grow: 1;
+}
+
+.player iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.bottomBar {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    width: 100%;
+    height: 40px;
+}
+
+.verticalBreak {
+    height: 100%;
+    width: 2px;
+    border-bottom: 1px solid var(--neutral-accent-light);
+    border-right: 1px solid var(--neutral-accent-light);
+    background-color: var(--neutral-2);
+}
+
+.playerButton {
+    width: 30px;
+    margin: 0 5px;
+    background-color: transparent;
+    border: none;
+    color: var(--neutral-2);
 }

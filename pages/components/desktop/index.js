@@ -26,11 +26,11 @@ export default function Desktop(props) {
             }
 
             {props.visibleWindows && props.visibleWindows["video"] && 
-                <AppWindow {...props} keyName="video" title="Video" activeWindow={props.activeWindow === "video"} 
+                <AppWindow {...props} keyName="video" title="Video Player" activeWindow={props.activeWindow === "video"} 
                     dragStarted={(keyName) => props.setActiveWindow(keyName)}
                     defaultWidth={400}
                     defaultHeight={400}
-                    minWidth={"400px"}
+                    minWidth={"640px"}
                     minHeight={"400px"}
                 >
                     <Video />
@@ -50,7 +50,7 @@ export default function Desktop(props) {
             }
             
             <div className={styles.appList}>
-                <AppIcon img={WatchParty} text={"Video"} onClick={() => openApp("video", props)}/>
+                <AppIcon img={WatchParty} text={"Video Player"} onClick={() => openApp("video", props)}/>
                 <AppIcon img={Business} text={"Chat Room"} onClick={() => openApp("chatRoom", props)}/>
             </div>
         </div>
