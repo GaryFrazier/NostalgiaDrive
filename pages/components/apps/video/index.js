@@ -46,7 +46,7 @@ export default function Video() {
       useEffect(() => {   
         if (videoElement && videos && videos[playlist]) {
           try {
-                videoElement.target.loadPlaylist(videos[playlist], videoIndex % videos[playlist].length, 0);
+                videoElement.target.loadPlaylist(videos[playlist], videos[playlist].length % videoIndex , 0);
           } catch(e) {
               
           }
@@ -58,14 +58,29 @@ export default function Video() {
         setVideoElement(event);
     }
 
-    const _onPlay = (event) => {
+    const _onEnd = (event) => {
         setVideoIndex(videoIndex + 1)
     }
 
     const onChangeValue = (event) => {
+        setVideoIndex(getRandomInt(videos[event.target.value].length))
         setPlaylist(event.target.value)
     }
 
+    const setPreviousVideo = (event) => {
+        if (videoIndex === 0) return
+
+        setVideoIndex(videoIndex - 1)
+        videoElement.target.previousVideo()
+    }
+
+    const setNextVideo = (event) => {
+        if (videoIndex === videos[playlist].length - 1) return
+
+        setVideoIndex(videoIndex + 1)
+        videoElement.target.nextVideo()
+    }
+    
     return (
         <div className={styles.video}>
             {loading ? <div className={styles.loading}><span>Loading...</span></div>
@@ -79,7 +94,7 @@ export default function Video() {
                         }
                     }}
                     onReady={_onReady}
-                    onPlay={_onPlay}
+                    onEnd={_onEnd}
                     /*iframeClassName={string}          // defaults -> ''
                     style={object}                    // defaults -> {}
                     title={string}                    // defaults -> ''
@@ -98,11 +113,11 @@ export default function Video() {
                     <FontAwesomeIcon icon={isPaused ? faPlay : faPause} />
                 </button>
 
-                <button className={styles.playerButton}>
+                <button onClick={setPreviousVideo} className={styles.playerButton}>
                     <FontAwesomeIcon icon={faBackwardStep} />
                 </button>
 
-                <button className={styles.playerButton}>
+                <button onClick={setNextVideo} className={styles.playerButton}>
                     <FontAwesomeIcon icon={faForwardStep} />
                 </button>
 
@@ -132,3 +147,6 @@ export default function Video() {
     )
 }
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
