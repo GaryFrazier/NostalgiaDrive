@@ -46,7 +46,7 @@ export default function Video() {
       useEffect(() => {   
         if (videoElement && videos && videos[playlist]) {
           try {
-                videoElement.target.loadPlaylist(videos[playlist], videos[playlist].length % videoIndex , 0);
+                videoElement.target.loadPlaylist(videos[playlist].map(x => x.id), videos[playlist].length % videoIndex , 0);
           } catch(e) {
               
           }
@@ -80,12 +80,26 @@ export default function Video() {
         setVideoIndex(videoIndex + 1)
         videoElement.target.nextVideo()
     }
+
+    const likeVideo = (event) => {
+        
+    }
+
+    const dislikeVideo = (event) => {
+        
+    }
+
+    const favoriteVideo = (event) => {
+        
+    }
     
+    let video = videos && videos[playlist] ? videos[playlist][videoIndex % videos[playlist].length] : {}
+
     return (
         <div className={styles.video}>
             {loading ? <div className={styles.loading}><span>Loading...</span></div>
                 : <YouTube
-                    videoId={videos && videos["popular"] ? videos["popular"][0] : null}
+                    videoId={videos && videos["popular"] ? videos["popular"][0].id : null}
                     id="ytPlayerVideo"                       // defaults -> ''
                     className={styles.player}                // defaults -> ''
                     opts={{
@@ -123,15 +137,15 @@ export default function Video() {
 
                 <div className={styles.verticalBreak} />
 
-                <button className={styles.playerButton}>
+                <button onClick={likeVideo} className={`${styles.playerButton} ${video?.liked && video?.liked === 1 ? styles.highlightedButton : ''}`}>
                     <FontAwesomeIcon icon={faThumbsUp} />
                 </button>
 
-                <button className={styles.playerButton}>
+                <button onClick={dislikeVideo} className={`${styles.playerButton} ${video?.liked && video?.liked === -1 ? styles.highlightedButton : ''}`}>
                     <FontAwesomeIcon icon={faThumbsDown} />
                 </button>
 
-                <button className={styles.playerButton}>
+                <button onClick={favoriteVideo} className={styles.playerButton} className={`${styles.playerButton} ${video?.liked && video?.favorite ? styles.highlightedButton : ''}`}>
                     <FontAwesomeIcon icon={faHeart} />
                 </button>
 

@@ -40,6 +40,10 @@
     color: var(--neutral-2);
 }
 
+.highlightedButton {
+    color: var(--active-primary) !important;
+}
+
 .playlistRadioGroup {
     display: flex;
     align-items: center;
