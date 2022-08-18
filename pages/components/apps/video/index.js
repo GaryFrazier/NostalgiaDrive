@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import YouTube, { YouTubePlayer } from 'react-youtube'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faPause, faForwardStep, faBackwardStep, faHeart, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
-
+import { useSession } from "next-auth/react"
 import { getVideos } from '../../..//api/videos'
 
 export default function Video() {
@@ -13,6 +13,7 @@ export default function Video() {
     const [videoIndex, setVideoIndex] = useState(0)
     const [videoElement, setVideoElement] = useState(null)
     const [loading, setLoading] = useState(true)
+    const { data: session } = useSession()
 
     const togglePause = () => {
         setIsPaused(!isPaused);
@@ -145,16 +146,23 @@ export default function Video() {
                     <FontAwesomeIcon icon={faThumbsDown} />
                 </button>
 
-                <button onClick={favoriteVideo} className={styles.playerButton} className={`${styles.playerButton} ${video?.liked && video?.favorite ? styles.highlightedButton : ''}`}>
-                    <FontAwesomeIcon icon={faHeart} />
-                </button>
+                { session && (
+                    <button onClick={favoriteVideo} className={styles.playerButton} className={`${styles.playerButton} ${video?.liked && video?.favorite ? styles.highlightedButton : ''}`}>
+                        <FontAwesomeIcon icon={faHeart} />
+                    </button>
+                )}
 
                 <div className={styles.verticalBreak} />
 
                 <div className={styles.playlistRadioGroup} onChange={onChangeValue}>
                     <input defaultChecked={playlist === "popular"} type="radio" value="popular" name="playlist" /> Popular
                     <input defaultChecked={playlist === "random"} type="radio" value="random" name="playlist" /> Random
-                    <input defaultChecked={playlist === "favorites"} type="radio" value="favorites" name="playlist" /> Favorites
+                    { session && (
+                        <><input defaultChecked={playlist === "favorites"} type="radio" value="favorites" name="playlist" /> Favorites</>
+                    )}
+                    { !session && (
+                        <span className={styles.favoritesText}>Log in to save favorites!</span>
+                    )}
                 </div>
             </div>
         </div>

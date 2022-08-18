@@ -60,3 +60,7 @@
     align-items: center;
     font-size: 2rem;
 }
+
+.favoritesText {
+    padding: 0 10px;
+}

@@ -20,8 +20,8 @@ export default function Desktop(props) {
             }
 
             {props.visibleWindows && props.visibleWindows["submit"] && 
-                <AppWindow {...props} keyName="submit" title="Submit" activeWindow={props.activeWindow === "submit"} dragStarted={(keyName) => props.setActiveWindow(keyName)}>
-                    <Submit />
+                <AppWindow {...props} minHeight={"300px"} minWidth={"300px"} keyName="submit" title="Submit" activeWindow={props.activeWindow === "submit"} dragStarted={(keyName) => props.setActiveWindow(keyName)}>
+                    <Submit {...props} />
                 </AppWindow>
             }
 

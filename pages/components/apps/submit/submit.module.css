@@ -1,3 +1,42 @@
 .submit {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.instructions {
+    padding: 0 20px 20px 20px;
+    text-align: center;
+}
+
+.submitButton {
+    background-color: var(--neutral-1);
+    border: 1px solid var(--neutral-accent-dark);
+    cursor: pointer;
+    padding: 4px;
+  
+    border-top: 2px solid var(--neutral-accent-light);
+    border-left: 2px solid var(--neutral-accent-light);
+    border-right: 2px solid var(--neutral-accent-dark);
+    border-bottom: 2px solid var(--neutral-accent-dark);
+}
+
+.submitButton:active {
+    border-top: 2px solid var(--neutral-accent-dark);
+    border-left: 2px solid var(--neutral-accent-dark);
+    border-right: 2px solid var(--neutral-accent-light);
+    border-bottom: 2px solid var(--neutral-accent-light);
+  }
+
+.urlInput {
+    margin-bottom: 20px;
+}
+
+.errorText {
+    margin: 20px;
+    color: red;
+    text-align: center;
 }
