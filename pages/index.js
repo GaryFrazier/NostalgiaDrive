@@ -7,7 +7,7 @@ import TaskBar from './components/taskBar'
 export default function Home() {
   const [visibleWindows, setVisibleWindows] = useState({chatRoom: true}) // set default windows here!
   const [activeWindow, setActiveWindow] = useState("")
-
+  
   return (
     <div className={styles.container}>
       <TaskBar 
